@@ -1,3 +1,5 @@
+<img width="2560" height="1440" alt="dashboard mockup" src="https://github.com/user-attachments/assets/7f20d439-77ab-4041-a500-b5404cf7c326" />
+
 # Costco-Retail-Analytics-Project
 
 # Costco Enterprise Retail Analytics: End-to-End ETL, SQL, and Power BI Solution
