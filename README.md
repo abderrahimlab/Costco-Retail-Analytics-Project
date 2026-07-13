@@ -21,7 +21,7 @@ The pipeline processes 6 core source files containing transactional history from
 
 ```text
 ├── app.py                 # Automated Python ETL & DB ingestion pipeline
-├── costco_cleaning.sql    # PostgreSQL data processing & cleaning scripts
+├── sqlfile    # PostgreSQL data processing & cleaning scripts
 ├── Costco_Dashboard.pbix  # Structured Power BI data model & dashboard
 └── README.md              # Documentation
 
@@ -74,7 +74,7 @@ def clean_dataframe(df):
 # (Pipeline loop automatically stacks yearly files to 'sales' table and isolates dimensions)
 ```
 
-### Step 2: Database Optimization (`costco_cleaning.sql`)
+### Step 2: Database Optimization (`sqlfile`)
 
 * **Deduplication utilizing Window Functions:**
 
