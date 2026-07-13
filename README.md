@@ -17,13 +17,15 @@ This project delivers an end-to-end data engineering and business intelligence s
 ---
 
 ## 3. Dataset & Repository Structure
-The pipeline processes 6 core source files containing transactional history from 2020 to 2024:
-* **Fact Table:** `sales` (Merged transactional history)
-* **Dimension Tables:** `customers`, `products`, `calander`
+
+The pipeline processes 7 core source CSV files containing data from 2020 to 2024:
+
+* **Fact Table:** `sales` (Compiled by automatically merging 5 separate annual transaction files)
+* **Dimension Tables:** `customers` (1 file) and `products` (1 file)
 
 ```text
 ├── app.py                 # Automated Python ETL & DB ingestion pipeline
-├── sqlfile    # PostgreSQL data processing & cleaning scripts
+├── costco_cleaning.sql    # PostgreSQL data processing & cleaning scripts
 ├── Costco_Dashboard.pbix  # Structured Power BI data model & dashboard
 └── README.md              # Documentation
 
