@@ -1,4 +1,5 @@
 -- Active: 1770309306489@@127.0.0.1@5432@costco_data
+-- Preview raw tables
 SELECT
     *
 FROM
@@ -14,7 +15,7 @@ SELECT
 FROM
     sales;
 
--- find the duplicates and remove them 
+-- Find duplicate orders
 SELECT
     order_id,
     count(*)
@@ -25,6 +26,7 @@ GROUP BY
 HAVING
     count(*) > 1;
 
+-- Delete duplicates keeping only the latest entry
 WITH cta AS (
     SELECT
         ctid,
@@ -48,7 +50,7 @@ WHERE
             row_num > 1
     );
 
--- cheke nulls 
+-- Audit null values across all tables
 SELECT
     *
 FROM
@@ -87,11 +89,7 @@ WHERE
     OR unit_price IS NULL
     OR cogs IS NULL;
 
-SELECT
-    *
-FROM
-    sales;
-
+-- Count nulls per column to assess data quality
 SELECT
     count(*) FILTER (
         WHERE
@@ -195,6 +193,7 @@ SELECT
 FROM
     products;
 
+-- Evaluate imputation strategies (mean vs mode)
 SELECT
     round(avg(qty))
 FROM
@@ -214,6 +213,7 @@ ORDER BY
 LIMIT
     1;
 
+-- Fill missing quantities using the statistical mode
 UPDATE
     sales
 SET
@@ -233,11 +233,12 @@ SET
                     2 DESC
                 LIMIT
                     1
-            )
+            ) sub
     )
 WHERE
     qty IS NULL;
 
+-- Final data checks
 SELECT
     *
 FROM
